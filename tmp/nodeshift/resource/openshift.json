@@ -1,0 +1,150 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "apps.openshift.io/v1",
+      "kind": "DeploymentConfig",
+      "metadata": {
+        "name": "guessing-game",
+        "namespace": "myproject",
+        "labels": {
+          "project": "guessing-game",
+          "version": "0.0.0",
+          "provider": "nodeshift",
+          "app": "guessing-game",
+          "app.kubernetes.io/name": "nodejs",
+          "app.kubernetes.io/component": "guessing-game",
+          "app.kubernetes.io/instance": "guessing-game",
+          "app.openshift.io/runtime": "nodejs"
+        },
+        "annotations": {
+          "nodeshift/git-branch": "master",
+          "nodeshift/git-commit": "afc50d7348c977b9a8f35ac84625797f3e877dff"
+        }
+      },
+      "spec": {
+        "replicas": 1,
+        "revisionHistoryLimit": 2,
+        "selector": {
+          "app": "guessing-game",
+          "project": "guessing-game",
+          "provider": "nodeshift"
+        },
+        "triggers": [
+          {
+            "type": "ConfigChange"
+          },
+          {
+            "type": "ImageChange",
+            "imageChangeParams": {
+              "automatic": true,
+              "containerNames": [
+                "guessing-game"
+              ],
+              "from": {
+                "kind": "ImageStreamTag",
+                "namespace": "myproject",
+                "name": "guessing-game:latest"
+              }
+            }
+          }
+        ],
+        "template": {
+          "metadata": {
+            "labels": {
+              "project": "guessing-game",
+              "version": "0.0.0",
+              "provider": "nodeshift",
+              "app": "guessing-game"
+            },
+            "annotations": {
+              "nodeshift/git-branch": "master",
+              "nodeshift/git-commit": "afc50d7348c977b9a8f35ac84625797f3e877dff"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "guessing-game",
+                "name": "guessing-game",
+                "securityContext": {
+                  "privileged": false
+                },
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "env": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "spec": {
+        "type": "ClusterIP",
+        "selector": {
+          "project": "guessing-game",
+          "provider": "nodeshift"
+        },
+        "ports": [
+          {
+            "protocol": "TCP",
+            "port": 8080,
+            "targetPort": 8080,
+            "name": "http"
+          }
+        ]
+      },
+      "metadata": {
+        "name": "guessing-game",
+        "namespace": "myproject",
+        "labels": {
+          "project": "guessing-game",
+          "version": "0.0.0",
+          "provider": "nodeshift",
+          "app.kubernetes.io/name": "nodejs",
+          "app.kubernetes.io/component": "guessing-game",
+          "app.kubernetes.io/instance": "guessing-game",
+          "app.openshift.io/runtime": "nodejs"
+        },
+        "annotations": {
+          "nodeshift/git-branch": "master",
+          "nodeshift/git-commit": "afc50d7348c977b9a8f35ac84625797f3e877dff"
+        }
+      }
+    },
+    {
+      "apiVersion": "route.openshift.io/v1",
+      "kind": "Route",
+      "spec": {
+        "to": {
+          "kind": "Service",
+          "name": "guessing-game"
+        },
+        "port": {
+          "targetPort": 8080
+        }
+      },
+      "metadata": {
+        "name": "guessing-game",
+        "labels": {
+          "project": "guessing-game",
+          "version": "0.0.0",
+          "provider": "nodeshift",
+          "app.kubernetes.io/name": "nodejs",
+          "app.kubernetes.io/component": "guessing-game",
+          "app.kubernetes.io/instance": "guessing-game",
+          "app.openshift.io/runtime": "nodejs"
+        }
+      }
+    }
+  ]
+}
