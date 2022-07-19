@@ -12,7 +12,7 @@ let guesses = [];
 let resetButton;
 alert(numberToGuess);
 
-function play(){
+function play() {
     const guess = parseFloat(document.getElementById("guessField").value);
     guesses.push(guess);
 
@@ -21,6 +21,7 @@ function play(){
             guessResult.textContent = 'WOW!!! You Got it on the fisrt try!';
             guessesResult.textContent ="Your guess was " + guesses;
         } else {
+            lastResult.textContent = '';
             guessResult.textContent = 'You Got it!';
             guessesResult.textContent ="You got it in " + numOfGuesses + " guesses\nYour guesses were " + guesses;
         }
@@ -52,6 +53,7 @@ function starNewGame() {
 
 function restartGame() {
     numOfGuesses = 1;
+    guesses = [];
     const resetParas = document.querySelectorAll('.resultParas p');
     for (const resetPara of resetParas) {
         resetPara.textContent = '';
