@@ -16,28 +16,31 @@ function play() {
     const guess = parseFloat(document.getElementById("guessField").value);
     guesses.push(guess);
 
-    if (guess === numberToGuess){
-        if (numOfGuesses === 1){
+    if (guess === numberToGuess) {
+        if (numOfGuesses === 1) {
             guessResult.textContent = 'WOW!!! You Got it on the fisrt try!';
-            guessesResult.textContent ="Your guess was " + guesses;
+            guessesResult.textContent = "Your guess was " + guesses;
         } else {
             lastResult.textContent = '';
             guessResult.textContent = 'You Got it!';
-            guessesResult.textContent ="You got it in " + numOfGuesses + " guesses\nYour guesses were " + guesses;
+            guessesResult.textContent = "You got it in " + numOfGuesses + " guesses\nYour guesses were " + guesses;
         }
         starNewGame();
-    } else if (guess < 1 || guess > 100){
+    } else if (guess < 1 || guess > 100) {
         guessResult.textContent = "You guess must be between 1 and 100";
         lastResult.textContent = "Try again!";
-    } else if (guess < numberToGuess){
+    } else if (guess < numberToGuess) {
         guessResult.textContent = "Nope! Too Low!";
         lastResult.textContent = "Try again!";
-    } else if (guess > numberToGuess){
+        guessesResult.textContent = "Guuesses: " + guesses;
+    } else if (guess > numberToGuess) {
         guessResult.textContent = "Nope! Too High!";
         lastResult.textContent = "Try again!";
+        guessesResult.textContent = "Guuesses: " + guesses;
     } else {
         guessResult.textContent = "Invalid!";
         lastResult.textContent = "Try again!";
+        guessesResult.textContent = "Guuesses: " + guesses;
     }
     numOfGuesses++;
     document.getElementById("guessField").value = '';

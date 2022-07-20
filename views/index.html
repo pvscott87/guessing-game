@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!--Name: Peter Scott
+
+<head>
+    <!--Name: Peter Scott
         Blackboard User Name: pvscott
 	    Filename: 
 	    Class Section: CSC.227.0001
 	    Purpose:
      -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Guessing Game</title>
-        <link rel='stylesheet' type="text/css" href='../public/stylesheets/style.css'/>
-    </head>
-    <body>
-        
-        <h1>
-            Guess a number Between 1 and 100
-        </h1>
-        <img src="../public/images/1200px-Orange_question_mark.svg.png" alt="question mark" width="150" height="150">
-        <h3>
-            Can you guess what I'm think?
-        </h3>  
-        <div class="form">
-            <label for="guessField">What is your guess? </label><br>
-            <input type="text" id="guessField" class="guessField"><br>
-            <input type="submit" value="Guess" class="submitGuess" id="button" onclick="play()">
-          </div>
-      
-          <div class="resultParas">
-            <p class="guessResult"></p>
-            <p class="lastResult"></p>
-            <p class="guessesResult"></p>
-          </div>
-          <div>
-          <input type="submit" value="Reset" class="restartGame" id="button" onclick="restartGame()">
-          </div>
-        <script src="../public/javascripts/TheGame.js"></script>
-    </body>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link rel='stylesheet' type="text/css" href='../public/stylesheets/style.css' />
+</head>
+
+<body>
+
+    <h1>
+        Guess a number Between 1 and 100
+    </h1>
+    <img src="../public/images/1200px-Orange_question_mark.svg.png" alt="question mark" width="150" height="150">
+    <h3>
+        Can you guess what I'm think?
+    </h3>
+    <div class="form">
+        <label for="guessField">What is your guess? </label><br>
+        <input type="text" id="guessField" class="guessField"><br>
+        <input type="submit" value="Guess" class="submitGuess" id="button" onclick="play()">
+    </div>
+
+    <div class="resultParas">
+        <p class="guessResult"></p>
+        <p class="lastResult"></p>
+        <p class="guessesResult"></p>
+    </div>
+    <div>
+        <input type="submit" value="Reset" class="restartGame" id="button" onclick="restartGame()">
+    </div>
+    <script src="../public/javascripts/TheGame.js"></script>
+</body>
+
 </html>

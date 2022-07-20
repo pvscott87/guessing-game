@@ -3,13 +3,12 @@ body {
   font: 14px Papyrus, "Lucida Grande", Helvetica, Arial;
   background-color: blue;
 }
+
 img {
-   display: block;
-   margin-left: 100px;
-   margin-right: auto;
+  display: block;
+  margin-left: 100px;
+  margin-right: auto;
 }
-
-
 
 label {
   display: block;
