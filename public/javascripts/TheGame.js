@@ -7,14 +7,14 @@ const submitGuess = document.querySelector('.submitGuess');
 const guessesField = document.querySelector('.guessField');
 let replay;
 let numberToGuess = Math.floor(Math.random() * 100) + 1;
-let numOfGuesses = 1;
+let numOfGuesses = 0;
 let guesses = [];
 
 
 function play() {
     const guess = parseFloat(document.getElementById("guessField").value);
     guesses.push(guess);
-
+    numOfGuesses++;
     if (guess === numberToGuess) {
         if (numOfGuesses === 1) {
             guessResult.textContent = 'WOW!!! You Got it on the fisrt try!';
@@ -41,7 +41,7 @@ function play() {
         lastResult.textContent = "Try again!";
         guessesResult.textContent = "Guesses: " + guesses;
     }
-    numOfGuesses++;
+    
     document.getElementById("guessField").value = '';
     document.getElementById("guessField").focus();
 }
