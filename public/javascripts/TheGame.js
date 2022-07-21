@@ -9,8 +9,7 @@ let replay;
 let numberToGuess = Math.floor(Math.random() * 100) + 1;
 let numOfGuesses = 1;
 let guesses = [];
-let resetButton;
-alert(numberToGuess);
+
 
 function play() {
     const guess = parseFloat(document.getElementById("guessField").value);
