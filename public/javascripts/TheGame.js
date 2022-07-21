@@ -54,7 +54,7 @@ function starNewGame() {
 }
 
 function restartGame() {
-    numOfGuesses = 1;
+    numOfGuesses = 0;
     guesses = [];
     const resetParas = document.querySelectorAll('.resultParas p');
     for (const resetPara of resetParas) {
