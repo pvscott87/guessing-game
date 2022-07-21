@@ -35,11 +35,11 @@ function play() {
     } else if (guess > numberToGuess) {
         guessResult.textContent = "Nope! Too High!";
         lastResult.textContent = "Try again!";
-        guessesResult.textContent = "Guuesses: " + guesses;
+        guessesResult.textContent = "Guesses: " + guesses;
     } else {
         guessResult.textContent = "Invalid!";
         lastResult.textContent = "Try again!";
-        guessesResult.textContent = "Guuesses: " + guesses;
+        guessesResult.textContent = "Guesses: " + guesses;
     }
     numOfGuesses++;
     document.getElementById("guessField").value = '';
