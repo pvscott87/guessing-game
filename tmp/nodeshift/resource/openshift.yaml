@@ -17,7 +17,7 @@ items:
         app.openshift.io/runtime: nodejs
       annotations:
         nodeshift/git-branch: master
-        nodeshift/git-commit: afc50d7348c977b9a8f35ac84625797f3e877dff
+        nodeshift/git-commit: 2d507f8795272ca832b56dbdbebccedd2149d170
     spec:
       replicas: 1
       revisionHistoryLimit: 2
